@@ -10,7 +10,7 @@ const init = async () => {
 
   await checkout('sync')
   await makeCommitsForDates(dates)
-  await push('sync', 'sync')
+  await push('sync')
 
   return true
 }

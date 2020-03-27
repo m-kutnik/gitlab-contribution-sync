@@ -4,10 +4,12 @@
 import simpleGit from 'simple-git/promise.js'
 import { saveSyncFile, SYNC_FILE } from './fs.mjs'
 
+const REMOTE = `https://${process.env.GITHUB_USER}:${process.env.GITHUB_TOKEN}@${process.env.GITHUB_REPO}`
+
 const git = simpleGit()
 
 export const checkout = branch => git.checkoutLocalBranch(branch)
-export const push = (remote, local) => git.push(remote, local)
+export const push = branch => git.push(REMOTE, branch)
 
 export const makeCommitsForDates = async dates => {
   const sortedDates = dates.sort()
@@ -18,7 +20,11 @@ export const makeCommitsForDates = async dates => {
     console.log(`Making commit with date: ${date}`)
     saveSyncFile(content)
     await git.add([SYNC_FILE])
-    await git.commit('Synchronizing commits from Gitlab', { '--date': date })
+    await git.addConfig('user.name', process.env.GITHUB_NAME)
+    await git.addConfig('user.email', process.env.GITHUB_EMAIL)
+    await git.commit('Synchronizing contribution from Gitlab', {
+      '--date': date,
+    })
   }
 
   return true
