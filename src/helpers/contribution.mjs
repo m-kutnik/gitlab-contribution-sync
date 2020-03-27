@@ -1,6 +1,7 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
-import simpleGit from 'simple-git/promise'
+// eslint-disable-next-line import/extensions
+import simpleGit from 'simple-git/promise.js'
 import { getUserContributions } from '../api/gitlab.mjs'
 import { readSyncFile, saveSyncFile, SYNC_FILE } from './fs.mjs'
 
