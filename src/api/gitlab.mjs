@@ -3,7 +3,7 @@ import parse from 'parse-link-header'
 import { getYMD } from '../helpers/date.mjs'
 
 export const fetchContributions = ({ url, after }) => {
-  const date = getYMD(after)
+  const date = after ? getYMD(after) : null
 
   console.log(`Fetching ${url}`)
 
