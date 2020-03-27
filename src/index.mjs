@@ -1,14 +1,16 @@
 import {
   getContributionDates,
   getLastSyncDate,
-  makeCommitsForDates,
 } from './helpers/contribution.mjs'
+import { makeCommitsForDates, checkout, push } from './helpers/git.mjs'
 
 const init = async () => {
   const lastSyncDate = getLastSyncDate()
   const dates = await getContributionDates({ after: lastSyncDate })
 
-  makeCommitsForDates(dates)
+  await checkout('sync')
+  await makeCommitsForDates(dates)
+  await push('sync', 'sync')
 
   return true
 }
