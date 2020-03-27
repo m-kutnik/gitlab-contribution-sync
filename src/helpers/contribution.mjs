@@ -28,6 +28,8 @@ export const makeCommitsForDates = async dates => {
 
   for (const date of sortedDates) {
     const content = JSON.stringify({ lastDate: date }, null, 1)
+
+    console.log(`Making commit with date: ${date}`)
     saveSyncFile(content)
   }
   // git()

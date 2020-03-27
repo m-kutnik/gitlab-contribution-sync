@@ -4,6 +4,9 @@ import { getYMD } from '../helpers/date.mjs'
 
 export const fetchContributions = ({ url, after }) => {
   const date = getYMD(after)
+
+  console.log(`Fetching ${url}`)
+
   return axios.get(url, {
     params: {
       per_page: 100,
