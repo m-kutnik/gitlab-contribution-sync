@@ -1,0 +1,36 @@
+{
+  "name": "gitlab-contribution-sync",
+  "version": "0.1.0",
+  "description": "Sync you Gitlab contributions with Github",
+  "main": "./src/index.mjs",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "parse-link-header": "^1.0.1",
+    "simple-git": "^1.132.0"
+  },
+  "devDependencies": {
+    "@m-kutnik/eslint-config": "^1.1.0",
+    "env-cmd": "^10.1.0",
+    "eslint": "^6.8.0"
+  },
+  "scripts": {
+    "start": "env-cmd node ./src/index.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m-kutnik/gitlab-contribution-sync.git"
+  },
+  "keywords": [
+    "gitlab",
+    "github",
+    "contribution",
+    "graph",
+    "sync"
+  ],
+  "author": "m.kutnik",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/m-kutnik/gitlab-contribution-sync/issues"
+  },
+  "homepage": "https://github.com/m-kutnik/gitlab-contribution-sync#readme"
+}
