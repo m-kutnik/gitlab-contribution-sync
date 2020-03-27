@@ -35,7 +35,6 @@ export const makeCommitsForDates = async dates => {
 
     console.log(`Making commit with date: ${date}`)
     saveSyncFile(content)
-    await git.checkoutLocalBranch('sync')
     await git.add([SYNC_FILE])
     await git.commit('Synchronizing commits from Gitlab')
   }
