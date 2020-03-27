@@ -8,7 +8,7 @@ const REMOTE = `https://${process.env.GITHUB_USER}:${process.env.GITHUB_TOKEN}@$
 
 const git = simpleGit()
 
-export const checkout = branch => git.checkoutLocalBranch(branch)
+export const checkout = branch => git.checkout(branch)
 export const push = branch => git.push(REMOTE, branch)
 
 export const makeCommitsForDates = async dates => {
