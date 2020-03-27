@@ -1,7 +1,10 @@
+/* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
-import git from 'simple-git'
+import simpleGit from 'simple-git/promise'
 import { getUserContributions } from '../api/gitlab.mjs'
-import { readSyncFile, saveSyncFile } from './fs.mjs'
+import { readSyncFile, saveSyncFile, SYNC_FILE } from './fs.mjs'
+
+const git = simpleGit()
 
 export const getContributionDates = async ({ after = null } = {}) => {
   const contributions = await getUserContributions({ after })
@@ -31,6 +34,9 @@ export const makeCommitsForDates = async dates => {
 
     console.log(`Making commit with date: ${date}`)
     saveSyncFile(content)
+    await git.checkoutLocalBranch('sync')
+    await git.add([SYNC_FILE])
+    await git.commit('Synchronizing commits from Gitlab')
   }
   // git()
 }

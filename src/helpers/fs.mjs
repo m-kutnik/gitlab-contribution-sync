@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync } from 'fs'
 import { join, resolve } from 'path'
 
-const SYNC_FILE = './sync.json'
+export const SYNC_FILE = './sync.json'
 
 export const readSyncFile = () => readFileSync(SYNC_FILE, 'utf8')
 
