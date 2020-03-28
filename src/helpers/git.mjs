@@ -4,7 +4,7 @@
 import simpleGit from 'simple-git/promise.js'
 import { saveSyncFile, SYNC_FILE } from './fs.mjs'
 
-const REMOTE = `https://${process.env.GITHUB_USER}:${process.env.GITHUB_TOKEN}@${process.env.GITHUB_REPO}`
+const REMOTE = `https://${process.env.GITHUB_USER}:${process.env.GITHUB_SECRET_TOKEN}@${process.env.GITHUB_REPO}`
 
 const git = simpleGit()
 
