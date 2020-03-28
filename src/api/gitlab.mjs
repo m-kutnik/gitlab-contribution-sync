@@ -5,7 +5,7 @@ import { getYMD } from '../helpers/date.mjs'
 export const fetchContributions = ({ url, after }) => {
   const date = after ? getYMD(after) : null
 
-  console.log(`Fetching ${url}`)
+  console.log('Fetching contribution events')
 
   return axios.get(url, {
     params: {
