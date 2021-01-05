@@ -4,7 +4,7 @@
   "description": "Sync you Gitlab contributions with Github",
   "main": "./src/index.mjs",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "parse-link-header": "^1.0.1",
     "simple-git": "^1.132.0"
   },
